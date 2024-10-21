@@ -15,22 +15,6 @@ export default function API() {
       setLoading(false);
     }, 1000);
   };
-
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get("https://dummyjson.com/recipes?limit=100")
-      .then(async (res) => {
-        // console.log(res.data.recipes);
-        await setRcp(res.data.recipes);
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
   return (
     <div
       style={{
