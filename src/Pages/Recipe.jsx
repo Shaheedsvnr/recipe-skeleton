@@ -1,24 +1,21 @@
-import Reciepi from "./Reciepi";
-import { Box, TextField } from "@mui/material";
-import axios from "axios";
-import React, { useEffect } from "react";
+import { Box, CircularProgress, TextField } from "@mui/material";
+import React from "react";
 import { useState } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
-export default function API() {
-  const [rcp, setRcp] = useState([]);
+import RecipeContainer from "../components/RecipeContainer";
+
+export default function Recipe() {
+  const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState(null);
   const [loading, setLoading] = useState(false);
   const handleSearch = (e) => {
-    setLoading(true);
     setTimeout(() => {
       setSearch(e.target.value);
-      setLoading(false);
     }, 1000);
   };
   return (
     <div
       style={{
-        backgroundColor: "#c07b9936",
+        backgroundColor: "#fff",
         minHeight: "100vh",
         width: "100%",
       }}
@@ -49,7 +46,7 @@ export default function API() {
           color="secondary"
         />
       ) : (
-        <Reciepi data={rcp} setData={setRcp} search={search} />
+        <RecipeContainer data={recipes} setData={setRecipes} search={search} />
       )}
     </div>
   );

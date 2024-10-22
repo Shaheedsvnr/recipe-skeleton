@@ -10,7 +10,7 @@ import Chip from "@mui/material/Chip";
 import StarIcon from "@mui/icons-material/Star";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import Single from "./SinlgeR";
+import SingleRecipe from "./SingleRecipe";
 const style = {
   position: "absolute",
   top: "50%",
@@ -22,13 +22,12 @@ const style = {
   boxShadow: 24,
 };
 
-export default function RecipeReviewCard({ data }) {
+export default function RecipeCard({ data }) {
   const [open, setOpen] = React.useState(false);
-  const [single, setSingle] = React.useState(null);
+  const [singleRecipeInfo, setSingleRecipeInfo] = React.useState(null);
   const handleClose = () => setOpen(false);
 
-  const handleSingle = (singleRecipe) => {
-    setSingle(singleRecipe);
+  const handleSingle = (singleData) => {
     setOpen(true);
   };
 
@@ -77,7 +76,7 @@ export default function RecipeReviewCard({ data }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Single item={single} />
+          <SingleRecipe />
         </Box>
       </Modal>
     </Box>
