@@ -43,7 +43,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function RecipeCard() {
+function SingleRecipe() {
   const item = {
     id: 1,
     name: "Classic Margherita Pizza",
@@ -194,4 +194,4 @@ function RecipeCard() {
   );
 }
 
-export default RecipeCard;
+export default SingleRecipe;
